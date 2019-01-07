@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>我的购物车</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/cart.css">
+</head>
+<body>
+	<div id="app">
+		<div class="head">
+			<div class="head-up">
+				我的购物车
+			</div>
+			<div class="head-down">
+				<button class="btn btn-success btn-sm">返回商铺</button>
+				<button class="btn btn-primary btn-sm">登出</button>
+			</div>
+		</div>
+		<div class="main">
+			<div class="order-items-con">
+				<div class="order-item" v-for="(item,index) in ordData">
+					<div class="order-info">
+						<p>订单编号:{{item.id}}</p>
+						<p>商铺名称{{item.name}}</p>
+						<p>商品价格{{item.price}}</p>
+						<p>购买数量{{item.num}}</p>
+						<p>价格总计{{item.price * item.num}}</p>
+						<p>下单日期{{item.date}}</p>
+						<p>支付<input type="checkbox" value="ensure" v-model="item.ensure"></p>
+						<p><button class="btn btn-danger btn-sm">移除商品</button></p>
+					</div>
+					<div class="oredr-img">
+						<img :src="item.imgSrc" alt="这里应该是150*150的图片">
+					</div>
+				</div>
+			</div>
+			<div>
+				<button class="btn btn-info btn-lg">确认购买</button>
+			</div>
+		</div>
+	</div>
+	
+	<script src="../js/vue.js"></script>
+	<script src="../js/cart.js"></script>
+</body>
+</html>

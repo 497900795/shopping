@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>管理员登录</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<style>
+		#app {
+			width: 80%;
+			margin: auto;
+		}
+		button {
+			float: right;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<form action="/users/login/admin" method="post">
+			<label for="">管理员号码</label>
+			<input type="text" class="form-control" placeholder="管理员号码" name="username">
+			<label for="">密码</label>
+			<input type="password" class="form-control" placeholder="密码" name="password">
+			<br>
+			<button class="btn btn-primary">登录</button>
+		</form>
+	</div>
+</body>
+</html>

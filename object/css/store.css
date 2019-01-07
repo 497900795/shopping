@@ -1,0 +1,222 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.head-research {
+	display: flex;
+}
+
+.logo {
+	width: 150px;
+	height: 150px;
+}
+
+.sb-sec {
+	width: 100%;
+	height: 150px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.rq-code {
+	width: 150px;
+	height: 150;
+}
+
+.sb-info {
+	width: 60%;
+	height: 30%;
+	margin: 1px;
+	font-size: 150%;
+}
+
+.head-menu {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 120%;
+	border-bottom: 1px solid rgba(100, 100, 100, 0.5);
+}
+
+.head-menu > div {
+	width: 33%;
+	text-align: center;
+}
+
+.pri-block {
+	display: none;
+	position: absolute;
+	left: 33%;
+	width: 33%;
+	z-index: 999;
+	background-color: #EEE;
+}
+
+.chs-pri:hover .pri-block {
+	display: block;
+}
+
+.pri-menu-list > li{
+	text-align: center;
+}
+
+.chs-type:hover .type-block {
+	display: block;
+}
+
+.type-block {
+	display: none;
+	position: absolute;
+	right: 0;
+	width: 25%;
+	background-color: #EEE;
+	z-index: 999;
+}
+
+.type-block > div {
+	width: 20%;
+	text-align: right;
+}
+
+.snack:hover {
+	color: #9BCD9B;
+}
+
+.drink:hover {
+	color: #98F5FF;
+}
+
+.fruit:hover {
+	color: #7FFF00;
+}
+
+.daily:hover {
+	color: #BF3EFF;
+}
+
+.nurse:hover {
+	color: #FF1493;
+}
+
+.main {
+	display: flex; 
+}
+
+.goods {
+	width: 66%;
+}
+
+.good-item {
+	width: 33%;
+	float: left;
+	margin: 5px 1.5px;
+}
+
+.good-item > div {
+	float: left;
+	margin-left: 2px;
+}
+
+.item-img-con > img {
+	width: 150px;
+	height: 150px;
+}
+
+
+.mag > ul {
+	position: fixed;
+	margin-top: 80px;
+	top: 40%;
+	left: 80%;
+	right: 10%;
+	font-size: 150%;
+}
+
+.foot {
+	display: flex;
+	background-color: #DCFFFF;
+}
+
+.foot div {
+	width: 50%;
+	font-size: 180%;
+}
+
+.conact {
+	padding: 1%;
+}
+
+.conact p {
+	width: auto;
+	font-size: 40%;
+}
+
+.recommend {
+	width: 1200px;
+	height: 400px;
+	margin: auto;
+	overflow: hidden;
+}
+
+.recommend:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.recommend > ul > li {
+	float: left;
+}
+
+.recommend > ul  {
+	height: 400px;
+}
+
+.rec-item {
+	position: absolute;
+	transition: all 2s;
+	width: 1000px;
+}
+
+.rec-item > .left {
+	width: 200px;
+	float: left;
+	overflow: hidden;
+	transition: all 2s;
+}
+
+.rec-item > .right {
+	width: 500px;
+	float: left;
+	transition: all 2s;
+}
+
+.rec-item-1 {
+	left: 0px;
+}
+
+.rec-item-2 > .right {
+	opacity: 1;
+}
+
+.rec-item-2 {
+	left: 800px;
+}
+
+.rec-item-2 > .right {
+	opacity: 0;
+}
+
+.rec-item-3 {
+	left: 1000px;
+}
+
+.rec-item-3 > .right {
+	opacity: 0;
+}

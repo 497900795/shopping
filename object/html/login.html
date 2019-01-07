@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>欢迎来到我的小店</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="../css/login.css">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+</head>
+<body>
+	<div id="app">
+		<div class="head">
+			<div class="welcome">欢迎来到我的店铺</div>
+			<div class="register"><button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">注册</button></div>
+		</div>
+		<div class="main">
+			<div class="car">
+				<ul class="car-container car-active">
+					<li class="car-item"><img src="../img/img1.jpg" alt="图片1"></li>
+					<li class="car-item"><img src="../img/img2.jpg" alt="图片2"></li>
+					<li class="car-item"><img src="../img/img3.jpg" alt="图片3"></li>
+					<li class="car-item"><img src="../img/img4.jpg" alt="图片4"></li>
+					<li class="car-item"><img src="../img/img1.jpg" alt="图片1"></li>
+				</ul>
+			</div>
+			<div class="login">
+				<form action="/users/login/user" method="post">
+					<p>欢迎登陆</p>
+					<label for="username">用户名</label>
+					<input class="form-control" type="text" placeholder="输入用户名" name="username">
+					<label for="password">密码</label>
+					<input class="form-control" type="password" placeholder="输入密码" name="password"><br>
+					<button class="btn btn-primary lg">登陆</button>
+				</form>
+			</div>
+		</div>
+		<div class="foot">
+			<div class="explain">任佳义女装专卖店,一定有您想要的</div>
+			<div class="conact">
+				<div>
+					<p>欢迎联系我们</p>
+					<p>qq:xxxx</p>
+					<p>微信:xxxx</p>
+					<p>电话:xxxx</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--注册用模态框-->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h4 class="modal-title" id="myModalLabel">注册新用户</h4>
+	            </div>
+	            <div class="modal-body">
+					<form action="/users/register" method="post">
+						<label for="username">用户名</label>
+						<input type="text" class="form-control" placeholder="输入用户名" name="username">
+						<label for="realname">用户姓名</label>
+						<input type="text" class="form-control" placeholder="输入用户姓名" name="realname">
+						<label for="address">用户地址</label>
+						<input type="text" class="form-control" placeholder="输入用户地址" name="address">
+						<label for="password">密码</label>
+						<input type="text" class="form-control" placeholder="输入用密码" name="password">
+						<label for="">确认密码</label>
+						<input type="text" class="form-control" placeholder="输入用密码">
+						<br>
+						<div style="position: relative; left: 80%;">
+							<button type="submit" class="btn btn-primary">注册</button> 
+	                		<button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+						</div>
+					</form>
+	            </div>
+	        </div><!-- /.modal-content -->
+	    </div><!-- /.modal -->
+	</div>
+	
+	<script src="../js/jq.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/car.js" defer></script>
+</body>
+</html>

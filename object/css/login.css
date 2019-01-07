@@ -1,0 +1,105 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+
+.head {
+	background-color: #CCFFFF;
+}
+
+.head:after {
+	display: block;
+	content: "";
+	clear: both;
+}
+
+.head div {
+	float: left;
+}
+
+.head .welcome {
+	font-size: 300%;
+}
+
+.head .register {
+	font-size: 100%;
+	float: right;
+}
+
+.main {
+	height: 600px;
+}
+
+.car {
+	position: relative;	
+	width: 1519px;
+	height: 600px;
+	overflow: hidden;
+}
+
+.car-container {
+	position: absolute;
+	width: 7595px;
+}
+
+.car-active {
+	transition: left 1s;
+}
+
+.car-item {
+	float: left;
+	list-style: none;
+}
+
+.car-item img {
+	width: 1519px;
+	height: 600px;
+}
+
+.login {
+	position: absolute;
+	border-radius: 5%;
+	padding: 2%;
+	left: 60%;
+	right: 5%;
+	top: 30%;
+	bottom: 25%;
+	min-height: 320px;
+	background-color: rgba(0, 0, 0, 0.4);
+	color: white;
+	overflow: hidden;
+}
+
+.login p {
+	font-size: 250%;
+}
+
+.login label {
+	font-size: 150%;
+}
+
+.lg {
+	width: 30%;
+	float: right;
+}
+
+.foot {
+	display: flex;
+	background-color: #DCFFFF;
+}
+
+.foot div {
+	width: 50%;
+	font-size: 180%;
+}
+
+.conact {
+	padding: 1%;
+}
+
+.conact p {
+	width: auto;
+	font-size: 40%;
+}
+

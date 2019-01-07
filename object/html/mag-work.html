@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>管理界面</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/mag-work.css">
+</head>
+<body>
+	<div id="app">
+		<div class="search">
+			<input type="text" class="form-control" placeholder="输入产品id">
+			<button class="btn btn-primary">查找</button>
+		</div>
+		<div class="goods">
+			<div class="good-item" v-for="(item,index) in goData">
+				<label for="">商品编号</label>
+				<input type="text" class="form-control" v-model="item.id">
+				<label for="">商品名称</label>
+				<input type="text" class="form-control" v-model="item.name">
+				<label for="">商品价格</label>
+				<input type="text" class="form-control" v-model="item.price">
+				<label for="">商品销量</label>
+				<input type="text" class="form-control" v-model="item.sells">
+				<label for="">商品配图</label>
+				<input type="text" class="form-control" v-model="item.imgSrc">
+				<label for="">商品简介</label>
+				<textarea type="text" class="form-control">{{item.introduce}}</textarea>
+				<hr>
+				<button class="btn btn-primary" @click="sbChg(index)">修改</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="../js/vue.js"></script>
+	<script src="../js/jq.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/mag.js"></script>
+</body>
+</html>
