@@ -1,3 +1,4 @@
+jQuery.ajaxSettings.traditional = true;
 var vm = new Vue({
 	el:'#app',
 	data: {

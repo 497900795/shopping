@@ -15,11 +15,11 @@
 		<div class="main">
 			<div class="car">
 				<ul class="car-container car-active">
-					<li class="car-item"><img src="../img/img1.jpg" alt="图片1"></li>
-					<li class="car-item"><img src="../img/img2.jpg" alt="图片2"></li>
-					<li class="car-item"><img src="../img/img3.jpg" alt="图片3"></li>
-					<li class="car-item"><img src="../img/img4.jpg" alt="图片4"></li>
-					<li class="car-item"><img src="../img/img1.jpg" alt="图片1"></li>
+					<li class="car-item"><img src="http://placekitten.com/1519/601" alt="图片1"></li>
+					<li class="car-item"><img src="http://placekitten.com/1519/602" alt="图片2"></li>
+					<li class="car-item"><img src="http://placekitten.com/1519/603" alt="图片3"></li>
+					<li class="car-item"><img src="http://placekitten.com/1519/604" alt="图片4"></li>
+					<li class="car-item"><img src="http://placekitten.com/1519/601" alt="图片1"></li>
 				</ul>
 			</div>
 			<div class="login">
@@ -28,8 +28,9 @@
 					<label for="username">用户名</label>
 					<input class="form-control" type="text" placeholder="输入用户名" name="username">
 					<label for="password">密码</label>
-					<input class="form-control" type="password" placeholder="输入密码" name="password"><br>
-					<button class="btn btn-primary lg">登陆</button>
+					<input id="in-pwd" class="form-control" type="password" placeholder="输入密码"><br>
+					<input class="btn btn-primary lg" value="登陆">
+					<input id="re-pwd" type="hidden" name="password">
 				</form>
 			</div>
 		</div>
@@ -51,11 +52,11 @@
 	    <div class="modal-dialog">
 	        <div class="modal-content">
 	            <div class="modal-header">
-	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="$('#reg-form').get(0).reset()">&times;</button>
 	                <h4 class="modal-title" id="myModalLabel">注册新用户</h4>
 	            </div>
 	            <div class="modal-body">
-					<form action="/users/register" method="post">
+					<form action="/users/register" method="post" id="reg-form">
 						<label for="username">用户名</label>
 						<input type="text" class="form-control" placeholder="输入用户名" name="username">
 						<label for="realname">用户姓名</label>
@@ -63,13 +64,14 @@
 						<label for="address">用户地址</label>
 						<input type="text" class="form-control" placeholder="输入用户地址" name="address">
 						<label for="password">密码</label>
-						<input type="text" class="form-control" placeholder="输入用密码" name="password">
+						<input  type="password" class="form-control" placeholder="输入用密码" id="reg-pwd">
 						<label for="">确认密码</label>
-						<input type="text" class="form-control" placeholder="输入用密码">
-						<br>
+						<input type="password" class="form-control" placeholder="再次输入用密码" id="en-pwd">
+						<input type="hidden" id="reg-re-pwd" name="password">
+						<p id="en-info" style="color: red;"></p>
 						<div style="position: relative; left: 80%;">
-							<button type="submit" class="btn btn-primary">注册</button> 
-	                		<button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+							<input type="submit" id="btn-reg" class="btn btn-primary" value="注册" disabled="true" onclick="encodeRegPwd()">
+	                		<input type="reset" class="btn btn-danger" data-dismiss="modal" value="关闭" onclick="$('#reg-form').get(0).reset()">
 						</div>
 					</form>
 	            </div>
@@ -78,7 +80,8 @@
 	</div>
 	
 	<script src="../js/jq.js"></script>
+	<script src="../js/md5.js"></script>
 	<script src="../js/bootstrap.js"></script>
-	<script src="../js/car.js" defer></script>
+	<script src="../js/login.js" defer></script>
 </body>
 </html>

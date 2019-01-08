@@ -9,7 +9,7 @@
 <body>
 	<div id="app">
 		<div class="head">
-			<p style="text-align: right;"><button class="btn btn-primary btn-sm" @click="logout">登出</button></p>
+			<p style="padding:0.5%;background-color: #F5F5F5;overflow: hidden;"><a style="float: right;" @click="logout">登出</a></p>
 			<div class="head-research">
 				<div class="logo">这里应该有个logo</div>
 				<div class="sb-sec"><input type="text" class="sb-info"><input type="button" class="btn btn-primary btn-lg" value="搜索" @click="sendScMsg"></div>
@@ -19,6 +19,7 @@
 				<button v-show="priceIndex!=-1" class="btn btn-primary btn-sm" @click="priceIndex=-1">{{priceArry[priceIndex]}}</button>
 				<button v-show="typeIndex!=-1" class="btn btn-success btn-sm" @click="typeIndex=-1">{{typeArry[typeIndex]}}
 				</button>
+				<button class="btn btn-primary btn-sm" style="visibility: hidden;"></button>
 			</div>
 			<div class="head-menu">
 				<div>热销产品</div>
@@ -51,35 +52,35 @@
 			<ul>
 				<li class="rec-item rec-item-1">
 					<div class="left">
-						这里应该有一张图片300*400
+						<img src="http://placekitten.com/300/400" alt="">
 					</div>
 					<div class="right">
 						<ul>
-							<li>这里应该有一张图片500*200</li>
-							<li>这里应该有一张图片500*200</li>
+							<li><img src="http://placekitten.com/500/200" alt=""></li>
+							<li><img src="http://placekitten.com/501/201" alt=""></li>
 						</ul>
 					</div>
 				</li>
 				<li class="rec-item rec-item-2">
 					<div class="left">
-						这里应该有一张图片300*400
+						<img src="http://placekitten.com/301/401" alt="">
 					</div>
 					<div class="right">
 						<ul>
-							<li>这里应该有一张图片500*200</li>
-							<li>这里应该有一张图片500*200</li>
+							<li><img src="http://placekitten.com/502/202" alt=""></li>
+							<li><img src="http://placekitten.com/503/203" alt=""></li>
 						</ul>
 					</div>
 				</li>
 
 				<li class="rec-item rec-item-3">
 					<div class="left">
-						这里应该有一张图片300*400
+						<img src="http://placekitten.com/302/402" alt="">
 					</div>
 					<div class="right">
 						<ul>
-							<li>这里应该有一张图片500*200</li>
-							<li>这里应该有一张图片500*200</li>
+							<li><img src="http://placekitten.com/504/204" alt=""></li>
+							<li><img src="http://placekitten.com/505/205" alt=""></li>
 						</ul>	
 					</div>
 				</li>
