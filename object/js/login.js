@@ -33,9 +33,11 @@ var ensurePwd = function() {
 			btn.disabled = false;
 			//显示提示
 			var info = document.getElementById('en-info');
-			info.innerHTML = "<b>两次密码输入不一样</b>"
+			info.innerHTML = '<b>两次密码输入不一样</b>';
 		}
 		else {
+			var info = document.getElementById('en-info');
+			info.innerHTML = '';
 			var btn = document.getElementById('btn-reg');
 			btn.disabled = false;
 		}
@@ -49,17 +51,16 @@ var encodeLogPwd = function() {
 	inPwd.onkeyup = function(ev)  {		
 		realPwd.value = md5(inPwd.value);
 	}
+	
 }
 
 var encodeRegPwd = function() {
 	var regPwd = document.getElementById('reg-pwd');
 	var regRePwd = document.getElementById('reg-re-pwd');
 	regRePwd.value = md5(regPwd.value);
-
-	$('#reg-form').get(0).reset();//还原表单
+	var fo = document.getElementById('reg-form').submit();//提交表单
 }
 
-encodeRegPwd();
 encodeLogPwd();
 ensurePwd();
 autoPlay(2000);

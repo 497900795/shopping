@@ -9,25 +9,25 @@
 <body>
 	<div id="app">
 		<div class="search">
-			<input type="text" class="form-control" placeholder="输入产品id">
-			<button class="btn btn-primary">查找</button>
+			<input type="text" class="form-control" placeholder="输入产品id" v-model="selID">
+			<button class="btn btn-primary" @click="selGoods()">查找</button>
 		</div>
-		<div class="goods">
+		<div class="goods" v-if="goData.length!=0">
 			<div class="good-item" v-for="(item,index) in goData">
 				<label for="">商品编号</label>
-				<input type="text" class="form-control" v-model="item.id">
+				<input type="text" class="form-control" v-model="item.GoodsID">
 				<label for="">商品名称</label>
-				<input type="text" class="form-control" v-model="item.name">
+				<input type="text" class="form-control" v-model="item.GoodsName">
 				<label for="">商品价格</label>
-				<input type="text" class="form-control" v-model="item.price">
+				<input type="text" class="form-control" v-model="item.GoodsPrice">
 				<label for="">商品销量</label>
-				<input type="text" class="form-control" v-model="item.sells">
+				<input type="text" class="form-control" v-model="item.GoodsSales">
 				<label for="">商品配图</label>
-				<input type="text" class="form-control" v-model="item.imgSrc">
+				<input type="text" class="form-control" v-model="item.GoodsPicture">
 				<label for="">商品简介</label>
-				<textarea type="text" class="form-control">{{item.introduce}}</textarea>
+				<textarea type="text" class="form-control">{{item.GoodsDescription}}</textarea>
 				<hr>
-				<button class="btn btn-primary" @click="sbChg(index)">修改</button>
+				<button class="btn btn-primary" @click="nowIndex=index;sbChg()">修改</button>
 			</div>
 		</div>
 	</div>

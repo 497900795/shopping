@@ -3,57 +3,22 @@ var vm = new Vue({
 	el:'#app',
 	data: {
 		ordArry: [
-			{
-				oid:'132',
-				goArry:[
-					{
-						gid:'1555',
-						gname:'女装',
-						num:'10'
-					},
-					{
-						gid:'1555',
-						gname:'女装',
-						num:'10'
-					},
-					{
-						gid:'1555',
-						gname:'女装',
-						num:'10'
-					},
-				],
-				date:'23142546576'
-			},
-			{
-				oid:'132',
-				goArry:[
-					{
-						gid:'1555',
-						gname:'女装',
-						num:'10'
-					},
-					{
-						gid:'1555',
-						gname:'女装',
-						num:'10'
-					},
-					{
-						gid:'1555',
-						gname:'女装',
-						num:'10'
-					},
-				],
-
-				date:'23142546576'
-			},
 			
 		]
+	},
+	filters: {
+		parseDate(ival) {
+			//获取 T 前的日期
+			return ival.split('T')[0];
+		}
 	},
 	created: function() {
 		var vm = this;
 		$.ajax({
-			url:'/store/order',
+			url:'/store/getOrder',
+			type:'get',
 			success: function(res) {
+				console.log(res)
 				vm.ordArry = res;
 			}
 		})

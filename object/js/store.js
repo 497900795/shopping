@@ -2,6 +2,8 @@ jQuery.ajaxSettings.traditional = true;
 var vm = new Vue({
 	el:'#app',
 	data: {
+		keyword:'',
+		hot:0,
 		nowIndex: 0,
 		priceIndex: -1,
 		typeIndex: -1,
@@ -21,45 +23,14 @@ var vm = new Vue({
 			'个人护理'
 		],
 		disData: [
-			{
-				id: 'rjynb',
-				name: '女装',
-				price: '100',
-				sells: '666',
-				introduce: 'aaaaaa',
-				imgSrc: 'xxx.jpg'
-			},
-			{
-				id: 'rjynb',
-				name: '女装',
-				price: '100',
-				sells: '666',
-				introduce: 'bbbbb',
-				imgSrc: 'xxx.jpg'
-			},
-			{
-				id: 'rjynb',
-				name: '女装',
-				price: '100',
-				sells: '666',
-				introduce: 'cccc',
-				imgSrc: 'xxx.jpg'
-			},
-			{
-				id: 'rjynb',
-				name: '女装',
-				price: '100',
-				sells: '666',
-				introduce: 'aaaaaa',
-				imgSrc: 'xxx.jpg'
-			},
+			
 		],
 	},
 	methods : {
 		logout() {
 			$.ajax({
 				url:'/users/logout',
-				type:'jsonp',
+				type:'get',
 				success:function() {
 					alert('成功登出')
 				}
@@ -72,11 +43,16 @@ var vm = new Vue({
 				url:'/store/items',
 				type:'get',
 				data: {
-					priceIndex: vm.priceIndex,
-					typeIndex: vm.typeIndex,
+					hot:vm.hot,
+					priceIndex: vm.priceIndex+1,
+					typeIndex: vm.typeIndex+1,
 					keyword: vm.keyword
 				},
 				success:function(res) {
+					//拼接图片地址
+					for(item of res) {
+						item.GoodsPicture = '/img/' + item.GoodsPicture + '.jpg'
+					}
 					vm.disData = res;
 				}
 			});
@@ -87,8 +63,8 @@ var vm = new Vue({
 				url:'/store/addCart',
 				type:'post',
 				data: {
-					id:vm.disData[vm.nowIndex].id,
-					num:vm.buyNum
+					id:vm.disData[vm.nowIndex].GoodsID,
+					num:vm.buyNum //数据库编号从1开始,与之匹配
 				},
 				success:function(res) {
 					alert('成功加入购物车');
@@ -97,20 +73,22 @@ var vm = new Vue({
 			this.buyNum = 1;
 		}
 	},
-	computed: {
-		totMoney() {	
-			return this.buyNum * this.disData[this.nowIndex]['price'];
-		}
-	}
-	/*created {
+	created:function() {
 		var vm = this;
 		$.ajax({
 			url: '/store/items',
-			success(res) {
+			success: function(res) {
 				vm.disData = res;
+				for(var item of vm.disData) {
+					item.GoodsPicture = '/img/' + item.GoodsPicture + '.jpg';
+				}
+			},
+			error: function(res) {
+				alert('wrong');
 			}
 		});
-	},*/
+
+	},
 });
 
 var recRegister = function () {
@@ -155,4 +133,4 @@ var recRegister = function () {
 	}
 }
 
-recRegister();
+window.onload = recRegister();

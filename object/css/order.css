@@ -3,6 +3,10 @@
 	margin: 0;
 }
 
+[v-cloak] {
+  display: none;
+}
+
 .head {
 	width: 80%;
 	margin: auto;
