@@ -6,7 +6,8 @@ var vm = new Vue({
 		hot:0,
 		nowIndex: 0,
 		priceIndex: -1,
-		typeIndex: -1,
+		typeIndex: 0,
+		typeName: '',
 		buyNum: 1,
 		priceArry: [
 			'0到20元',
@@ -16,15 +17,16 @@ var vm = new Vue({
 			'200元以上'
 		],
 		typeArry: [
-			'休闲零食',
-			'奶品水印',
-			'生鲜水果',
-			'家清家居',
-			'个人护理'
+			
 		],
 		disData: [
 			
 		],
+	},
+	computed: {
+		totMoney() {
+			return (this.buyNum * this.disData[this.nowIndex]['GoodsPrice']).toFixed(2);
+		}
 	},
 	methods : {
 		logout() {
@@ -32,20 +34,26 @@ var vm = new Vue({
 				url:'/users/logout',
 				type:'get',
 				success:function() {
-					alert('成功登出')
+					alert('成功登出');
+					window.open('/', '_top');
 				}
 			});
 		},
 		//发送查询请求,成功则更新disData
 		sendScMsg() {
 			var vm = this;
+			for (item of vm.typeArry) {
+				if (item.CategoryID == vm.typeIndex) {
+					vm.typeName = item.CategoryName;
+				}
+			}
 			$.ajax({
 				url:'/store/items',
 				type:'get',
 				data: {
 					hot:vm.hot,
 					priceIndex: vm.priceIndex+1,
-					typeIndex: vm.typeIndex+1,
+					typeIndex: vm.typeIndex,
 					keyword: vm.keyword
 				},
 				success:function(res) {
@@ -87,7 +95,21 @@ var vm = new Vue({
 				alert('wrong');
 			}
 		});
-
+		$.ajax({
+			url: '/store/getCategory',
+			success: function (res) {
+				if (res.errcode) {
+					if (res.errcode != 0) {
+						alert(res.errmsg);
+					}
+				} else {
+					vm.typeArry = res;
+				}
+			},
+			error: function (res) {
+				alert('error');
+			}
+		})
 	},
 });
 

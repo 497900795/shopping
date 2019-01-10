@@ -6,20 +6,24 @@ var vm = new Vue({
 			
 		]
 	},
-	filters: {
-		parseDate(ival) {
-			//获取 T 前的日期
-			return ival.split('T')[0];
-		}
-	},
 	created: function() {
 		var vm = this;
 		$.ajax({
 			url:'/store/getOrder',
 			type:'get',
-			success: function(res) {
-				console.log(res)
-				vm.ordArry = res;
+			success: function (res) {
+				if (res.errcode) {
+					if (res.errcode != 0) {
+						alert(res.errmsg);
+						window.open('/', '_top');
+					}
+				}
+				if(res.length != 0) {
+					vm.ordArry = [];
+					for (var item in res) {
+						vm.ordArry.unshift(res[item]);
+					}
+				}
 			}
 		})
 	}

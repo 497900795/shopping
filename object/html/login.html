@@ -8,10 +8,9 @@
 </head>
 <body>
 	<div id="app">
-		<div class="head">
+<!-- 		<div class="head">
 			<div class="welcome">欢迎来到我的店铺</div>
-			<div class="register"><button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">注册</button></div>
-		</div>
+		</div> -->
 		<div class="main">
 			<div class="car">
 				<ul class="car-container car-active">
@@ -24,12 +23,15 @@
 			</div>
 			<div class="login">
 				<form action="/users/login" method="post">
-					<p>欢迎登陆</p>
+					<h1>欢迎来到我的店铺</h1>
+					<h2>请先登录</h2>
 					<label for="username">用户名</label>
 					<input class="form-control" type="text" placeholder="输入用户名" name="username">
 					<label for="password">密码</label>
 					<input id="in-pwd" class="form-control" type="password" placeholder="输入密码"><br>
-					<input type="submit" class="btn btn-primary lg" value="登陆">
+					<input type="submit" class="btn btn-primary lg form-control" value="登录">
+					<input type="button" class="btn lg form-control"  data-toggle="modal" data-target="#myModal" value="注册" style="margin-top: 1em;">
+					<!-- <button class="btn btn-lg form-control" data-toggle="modal" data-target="#myModal">注册</button> -->
 					<input id="re-pwd" type="hidden" name="password">
 				</form>
 			</div>
@@ -58,15 +60,15 @@
 	            <div class="modal-body">
 					<form action="/users/register" method="post" id="reg-form">
 						<label for="username">用户名</label>
-						<input type="text" class="form-control" placeholder="输入用户名" name="username">
+						<input type="text" class="form-control" placeholder="输入用户名" name="username" id="reg-username" required>
 						<label for="realname">用户姓名</label>
-						<input type="text" class="form-control" placeholder="输入用户姓名" name="realname">
+						<input type="text" class="form-control" placeholder="输入用户姓名" name="realname" id="reg-realname" required>
 						<label for="address">用户地址</label>
-						<input type="text" class="form-control" placeholder="输入用户地址" name="address">
+						<input type="text" class="form-control" placeholder="输入用户地址" name="address" id="reg-address" required>
 						<label for="password">密码</label>
-						<input  type="password" class="form-control" placeholder="输入用密码" id="reg-pwd">
+						<input  type="password" class="form-control" placeholder="输入用密码" id="reg-pwd" required>
 						<label for="">确认密码</label>
-						<input type="password" class="form-control" placeholder="再次输入用密码" id="en-pwd">
+						<input type="password" class="form-control" placeholder="再次输入用密码" id="en-pwd" required>
 						<input type="hidden" id="reg-re-pwd" name="password">
 						<p id="en-info" style="color: red;"></p>
 						<div style="position: relative; left: 80%;">
@@ -83,5 +85,14 @@
 	<script src="../js/md5.js"></script>
 	<script src="../js/bootstrap.js"></script>
 	<script src="../js/login.js" defer></script>
+	<link rel="stylesheet" href="/img/11.jpg">
+	<link rel="stylesheet" href="/img/12.jpg">
+	<link rel="stylesheet" href="/img/13.jpg">
+	<link rel="stylesheet" href="/img/21.jpg">
+	<link rel="stylesheet" href="/img/22.jpg">
+	<link rel="stylesheet" href="/img/23.jpg">
+	<link rel="stylesheet" href="/img/31.jpg">
+	<link rel="stylesheet" href="/img/32.jpg">
+	<link rel="stylesheet" href="/img/33.jpg">
 </body>
 </html>

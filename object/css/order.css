@@ -8,11 +8,10 @@
 }
 
 .head {
-	width: 80%;
-	margin: auto;
+/*	width: 80%;
+	margin: auto;*/
 	background-color: #CCFFFF;
-	height: 150%;
-	font-size: 150%;
+	padding: 2em;
 }
 
 .head:after {
@@ -21,22 +20,37 @@
 	clear: both;
 }
 
+.head-up {
+	font-size: 300%;
+	line-height: 180%;
+	float: left;
+	margin-left: 1em;
+}
+
+.head-down {
+	float: right;
+	line-height: 500%;
+}
+
 .ord-con {
 	box-sizing: border-box;
-	border-top: 1px solid #FFFFFF;
-	border-left: 1px solid #FFFFFF;
-	border-bottom: 1px solid #717171;
-	border-right: 1px solid #717171;
+	border-radius: 4px;
 	width: 80%;
 	margin: auto;
 	margin-top: 0.5%;
 	padding: 2%;
-	background-color: #F5F5F5;
+	background-color: #FFFFFF;
 	overflow: hidden;
+	transition: all 200ms linear;
+}
+
+.ord-con:nth-child(2n-1) {
+	background-color: #F5F5F5;
 }
 
 .ord-con:hover {
-	border: 1px solid #F40;
+	box-shadow: 0px 0px 8px #66CCFF;
+	background-color: #F5F5F5;
 }
 
 .ord-con > p {
@@ -50,9 +64,11 @@
 }
 
 .ord-item {
+	padding: 0.2em 0.5em;
 	box-sizing: border-box;
 	float: left;
 	width: 25%;
+	transition: all 200ms linear;
 }
 
 .ord-item > p {

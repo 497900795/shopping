@@ -7,6 +7,13 @@ var vm = new Vue({
 		goData: [
 			
 		],
+		addData: {
+			GoodsID:'',
+			GoodsName:'',
+			GoodsPrice:'',
+			GoodsDescription:'',
+			CategoryID:''
+		}
 	},
 	methods: {
 		selGoods() {
@@ -46,12 +53,71 @@ var vm = new Vue({
 					alert('修改成功');
 				}
 			});
+		},
+		sbDel() {
+			var vm = this;
+			if(confirm('确认删除')) {
+				//删除则发送ajax
+				$.ajax({
+					url:'/admin/delGoods',
+					type: 'post',
+					data: {			
+						GoodsID: vm.goData[vm.nowIndex]['GoodsID'],
+					},
+					success: function(res) {
+						//vue因defineProperty不能动态监听数组内部变化
+						//下方法为hack解决方式
+						vm.goData.splice(vm.nowIndex,1);
+
+						alert('删除成功');
+					}
+				});
+			}
+			else {
+
+			}
+		},
+		sbAdd() {
+			var vm = this;
+			$.ajax({
+				url: '/admin/addGoods',
+				data: {
+					GoodsID:vm.addData.GoodsID,
+					GoodsName:vm.addData.GoodsName,
+					GoodsPrice:vm.addData.GoodsPrice,
+					GoodsDescription:vm.addData.GoodsDescription,
+					CategoryID:vm.addData.CategoryID
+				},
+				type: 'post',
+				success: function(res) {
+					if(res.errcode == 0) {
+						//再次请求数据以刷新
+						$.ajax({
+							url: '/admin/getGoods',
+							type: 'get',
+							success: function(res) {
+								vm.goData = res;
+							}
+						});
+					}
+					else {
+						if(errmsg == 1) {
+							//权限不足
+							alert('权限不足或没有登录');
+						}
+						else {
+							//添加失败
+							alert('添加失败');
+						}
+					}
+				},
+			});
 		}
 	},
 	created: function() {
 		var vm = this;
 		$.ajax({
-			url:'/admin/getGoods',
+			url: '/admin/getGoods',
 			type: 'get',
 			success: function(res) {
 				vm.goData = res;

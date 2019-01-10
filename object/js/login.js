@@ -23,26 +23,47 @@ var autoPlay = function (delay) {
 	}, delay);
 }
 
-var ensurePwd = function() {
+var validateReg = function (ev) {
+	var pass = true;
+	var regUser = document.getElementById('reg-username');
+	var regReal = document.getElementById('reg-realname');
+	var regAddr = document.getElementById('reg-address');
 	var regPwd = document.getElementById('reg-pwd');
 	var enPwd = document.getElementById('en-pwd');
-	enPwd.addEventListener('keyup', function(ev) {
-		if(regPwd.value != enPwd.value && enPwd.value != '') {
-			//禁止提交
-			var btn = document.getElementById('btn-reg');
-			btn.disabled = false;
-			//显示提示
-			var info = document.getElementById('en-info');
-			info.innerHTML = '<b>两次密码输入不一样</b>';
-		}
-		else {
-			var info = document.getElementById('en-info');
-			info.innerHTML = '';
-			var btn = document.getElementById('btn-reg');
-			btn.disabled = false;
-		}
-	});
-}
+	var btn = document.getElementById('btn-reg');
+
+	if (regUser.value == '') {
+		pass = false;
+	}
+	if (regReal.value == '') {
+		pass = false;
+	}
+	if (regAddr.value == '') {
+		pass = false;
+	}
+	if (regPwd.value != enPwd.value && enPwd.value != '') {
+		pass = false;
+		//显示提示
+		var info = document.getElementById('en-info');
+		info.innerHTML = '<b>两次密码输入不一样</b>';
+	}
+	else {
+		var info = document.getElementById('en-info');
+		info.innerHTML = '';
+	}
+	if (pass) {
+		btn.disabled = false;
+	} else {
+		//禁止提交
+		btn.disabled = true;
+	}
+};
+
+document.getElementById('reg-username').addEventListener('keyup', validateReg);
+document.getElementById('reg-realname').addEventListener('keyup', validateReg);
+document.getElementById('reg-address').addEventListener('keyup', validateReg);
+document.getElementById('reg-pwd').addEventListener('keyup', validateReg);
+document.getElementById('en-pwd').addEventListener('keyup', validateReg);
 
 var encodeLogPwd = function() {
 	var inPwd = document.getElementById('in-pwd');
@@ -62,5 +83,4 @@ var encodeRegPwd = function() {
 }
 
 encodeLogPwd();
-ensurePwd();
 autoPlay(2000);
